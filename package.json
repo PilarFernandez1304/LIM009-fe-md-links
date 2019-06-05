@@ -1,0 +1,37 @@
+{
+  "name": "lim009-fe-md-links",
+  "version": "1.0.0",
+  "description": "md-links finder, frontend project @ Laboratoria",
+  "main": "src/index.js",
+  "keywords": [
+    "node",
+    "filesystem",
+    "markdown",
+    "links"
+  ],
+  "author": "Pilar Fernandez Ccente",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PilarFernandez1304/LIM009-fe-md-links/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PilarFernandez1304/LIM009-fe-md-links.git "
+},
+  "scripts": {
+    "htmlhint": "htmlhint dist/*.html ",
+    "eslint": "eslint --ext .js src/ test/",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "htmlhint": "^0.10.1",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1"
+  }
+}
