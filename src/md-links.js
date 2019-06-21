@@ -14,13 +14,16 @@ let filesMd = (fileArr)=>{
       }  
     });
     return newArrayFileMd
-
 }
-
 // extraer links
 
 let extracLinks =(ArrFileMd)=>{
-    
-
+    newArrayLinks=[];
+    let ArrayMd= filesMd(ArrFileMd);
+    ArrayMd.map(e=>{
+        return newArrayLinks.push(e)
+    })
+ return newArrayLinks
 }
 
+console.log(extracLinks(fileMd))
