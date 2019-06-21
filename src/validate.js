@@ -18,25 +18,23 @@ let validatePathisDirectory = (route) => {
   return dir
 }
 
-let validatePathisFile = async (route) => {
+let validatePathisFile =  (route) => {
   let files = fs.lstatSync(route).isFile()
   return files
 }
 
+
 let walkIntoDirectory=(route)=> {
   let arrayOfFile = [];
-  if (!validatePathisDirectory(route)) {
-
+  if (!validatePathisDirectory(route)){
     arrayOfFile.push(route)
   }
   else {
     let readDirectory = fs.readdirSync(route)
     readDirectory.map((read) => { 
       let next =path.join(route, read)
-       return (validatePathisDirectory(next)) ?  arrayOfFile=arrayOfFile.concat(walkIntoDirectory(next)) :  arrayOfFile.push(next)
-       
+       return (validatePathisDirectory(next)) ?  arrayOfFile=arrayOfFile.concat(walkIntoDirectory(next)) : arrayOfFile.push(next)
       })
-
   }
  return arrayOfFile  
 }
