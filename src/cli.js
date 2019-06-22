@@ -1,9 +1,14 @@
 const {validateAbsolutePath,validatePathisDirectory,validatePathisFile,walkIntoDirectory}= require('./validate.js')
 
-route='/home/pilar/Escritorio/LIM009-fe-md-links/src/'
+//route='/home/pilar/Escritorio/LIM009-fe-md-links/src/'
 //route='./cli.js'
 
-validateAbsolutePath(route)
+const argv=process.argv
+let parametro=argv[2] 
+
+console.log(parametro)
+
+validateAbsolutePath(parametro)
     .then(validatedRoute=>{     
     return validatePathisDirectory(validatedRoute)
     })
@@ -11,13 +16,13 @@ validateAbsolutePath(route)
     .catch(resp=>console.log(`${resp},la ruta es absoluta`))
 
 
-console.log(validatePathisFile(route))
+console.log(validatePathisFile(parametro))
 
 
 /*walkIntoDirectory(route)
 .then (r=>console.log(r))*/
 
-console.log(walkIntoDirectory(route))
+console.log(walkIntoDirectory(parametro))
 
 
 
