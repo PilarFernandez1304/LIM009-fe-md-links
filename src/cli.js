@@ -4,7 +4,7 @@ const {validateAbsolutePath,validatePathisDirectory,validatePathisFile,walkIntoD
 //route='./cli.js'
 
 const argv=process.argv
-let parametro=argv[2] 
+let parametro=argv.splice()
 
 console.log(parametro)
 

@@ -6,7 +6,7 @@ let salida1 =['/home/pilar/Escritorio/LIM009-fe-md-links/src/assa/sdsd.js',
               '/home/pilar/Escritorio/LIM009-fe-md-links/src/md-links.js',              
               '/home/pilar/Escritorio/LIM009-fe-md-links/src/validate.js', ]
 
-let salida2=['/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js' ]
+let salida2 = ['/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js' ]
 
 
 

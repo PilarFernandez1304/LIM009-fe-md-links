@@ -1,10 +1,10 @@
 const path = require('path');
 const fs = require('fs');
 
-fileMd=[ '/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js',
-'/home/pilar/Escritorio/LIM009-fe-md-links/src/validate.js',
-'/home/pilar/Escritorio/LIM009-fe-md-links/src/validate.md',
-'/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.md' ]
+fileMd=[ '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.js',
+'/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.js',
+'/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.md',
+'/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.md' ]
 
 let filesMd = (fileArr)=>{
     let newArrayFileMd=[]
@@ -20,10 +20,28 @@ let filesMd = (fileArr)=>{
 let extracLinks =(ArrFileMd)=>{
     newArrayLinks=[];
     let ArrayMd= filesMd(ArrFileMd);
-    ArrayMd.map(e=>{
-        return newArrayLinks.push(e)
+    const regExpresion = /(^|[^!])\[(.*)\]\((.*)\)/g;
+    const regExpressionHref = /\((.*)\)/g;
+    const regExpressionNameLink = /\[((.*))\]/g;
+    ArrayMd.forEach(elempathMd=>{
+        let readFileMd=fs.readFileSync(elempathMd,'utf-8');
+        listafLinksMd=readFileMd.match(regExpresion)
+        if(listafLinksMd!==null){
+         listafLinksMd.forEach(InfoLinks=>{
+             let href=InfoLinks.match(regExpressionHref).toString();
+             let name = InfoLinks.match(regExpressionNameLink).toString()
+         newArrayLinks.push({
+            file: path.resolve(elempathMd),
+            href: href.split((/[\(\)]/))[1],
+            text: name.split(/[\[\]]/)[1].slice(0, 60),
+         })
+        })
+        }
     })
- return newArrayLinks
+
+    return newArrayLinks
+
+  
 }
 
 console.log(extracLinks(fileMd))
