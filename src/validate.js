@@ -1,3 +1,4 @@
+
 'use strict'
 const fs = require('fs');
 const path = require('path');
@@ -14,12 +15,12 @@ let validateAbsolutePath = async (route) => {
 }
 
 let validatePathisDirectory = (route) => {
-  let dir = fs.lstatSync(route).isDirectory()
+  let dir = fs.statSync(route).isDirectory()
   return dir
 }
 
 let validatePathisFile =  (route) => {
-  let files = fs.lstatSync(route).isFile()
+  let files = fs.statSync(route).isFile()
   return files
 }
 
@@ -32,12 +33,13 @@ let walkIntoDirectory=(route)=> {
   else {
     let readDirectory = fs.readdirSync(route)
     readDirectory.map((read) => { 
-      let next =path.join(route, read)
-       return (validatePathisDirectory(next)) ?  arrayOfFile=arrayOfFile.concat(walkIntoDirectory(next)) : arrayOfFile.push(next)
+      let next =path.join(route,read)
+       return (validatePathisDirectory(next)) ?  arrayOfFile=arrayOfFile.concat(walkIntoDirectory(next)) : arrayOfFile.push(next);
       })
   }
  return arrayOfFile  
 }
+
 module.exports = {
   validateAbsolutePath,
   validatePathisDirectory,

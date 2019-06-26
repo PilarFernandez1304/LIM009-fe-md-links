@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PilarFernandez1304/LIM009-fe-md-links.git "
-},
+  },
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
@@ -33,5 +33,8 @@
     "htmlhint": "^0.10.1",
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.13.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
   }
 }

@@ -1,14 +1,30 @@
+
+
 const {validateAbsolutePath,validatePathisDirectory,validatePathisFile,walkIntoDirectory}= require('./validate.js')
 
-//route='/home/pilar/Escritorio/LIM009-fe-md-links/src/'
+const argv=process.argv.slice(2)
+
+route='/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js'
 //route='./cli.js'
 
-const argv=process.argv
-let parametro=argv.splice()
+switch(argv.length){
+    case 0: 
+        console.log('Ingrese una ruta');break;
+    case 1:
+        console.log(argv[0]);break;
+    case 2:
+        console.log(argv[1]);break;
+    case 3:
+        console.log('3');break;
 
-console.log(parametro)
+}
 
-validateAbsolutePath(parametro)
+console.log(argv)
+
+
+
+
+/*validateAbsolutePath(parametro)
     .then(validatedRoute=>{     
     return validatePathisDirectory(validatedRoute)
     })
@@ -16,14 +32,14 @@ validateAbsolutePath(parametro)
     .catch(resp=>console.log(`${resp},la ruta es absoluta`))
 
 
-console.log(validatePathisFile(parametro))
+//console.log(validatePathisFile(parametro))
 
 
 /*walkIntoDirectory(route)
-.then (r=>console.log(r))*/
+.then (r=>console.log(r))
 
 console.log(walkIntoDirectory(parametro))
-
+*/
 
 
 
