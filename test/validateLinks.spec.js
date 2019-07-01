@@ -1,5 +1,5 @@
 import { validateLinks } from '../src/validateLinks.js'
-const fetchMock = require('fetch-mock');
+const fetchMock = require('../__mocks__/node-fetch');
 
 const fileMd = ['/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.js',
     '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.js',
@@ -29,11 +29,11 @@ const ouputValidate = [
     },
     {
         "file": "/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.md",
-        "href": "https://docs.np.com/getting-started/what-is-npm",
-        "message": "Fail",
-        "status": "No existe",
-        "text": "NPM"
-    }
+        "href": 'https://github.com/Laboratoria/LIM008-fe-md-lin',
+        "text": 'Node.js',
+        "status": 404,
+        "message": 'Fail'
+    },
 ]
 
 
@@ -41,5 +41,19 @@ describe('validateLinks', () => {
     it('validateLinks deberia ser una funcion', () => {
         expect(typeof validateLinks).toBe('function');
     })
-it('')
+    it('Deberia regresar un objeto con los datos de los links', (done) => {
+        fetchMock
+            .mock("https://www.genbeta.com/desarrollo/node-js-y-npm", 200)
+            .mock("http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175", 200)
+            .mock("https://carlosazaust.com/manejando-la-asincronia-en-javascript/", "No existe")
+            .mock("https://github.com/Laboratoria/LIM008-fe-md-lin", 404)
+            .mock('*', 200)
+        const ApliValidateLinks = validateLinks(fileMd)
+        ApliValidateLinks.then(response => {
+            expect(response).toEqual(ouputValidate);
+            done();
+        })
+            .catch(error => done());
+    })
+    
 })

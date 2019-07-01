@@ -1,18 +1,16 @@
+
 const { extracLinks } = require('./md-links.js');
 const fetch = require('node-fetch');
 
-/*fileMd = ['/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.js',
-    '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.js',
-    '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.md',
-    '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.md']
-*/
+//route='/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/'
+
 const validateLinks = (routesMd) => {
     let objLinks = extracLinks(routesMd);
     let runObjLinks = objLinks.map((linksVal) => new Promise((resolve) => {
         let linksHref = fetch(linksVal.href);
         return linksHref
             .then((res) => {
-                if (res.status >= 200 && res.status <= 404) {
+                if (res.status >= 200 && res.status < 400) {
                     linksVal.status = res.status;
                     linksVal.message = res.statusText;
                     resolve(linksVal);
@@ -33,7 +31,7 @@ const validateLinks = (routesMd) => {
 }
 
 
-//validateLinks(fileMd).then(res=>console.log(res));
+//validateLinks(route).then(res=>console.log(res));
 
 module.exports = {
     validateLinks

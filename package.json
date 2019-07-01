@@ -21,11 +21,14 @@
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "buil": "babel src -d lib"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "eslint": "^5.10.0",

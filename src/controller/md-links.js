@@ -1,11 +1,8 @@
+const{ walkIntoDirectory }= require ('./validate.js')
 const path = require('path');
 const fs = require('fs');
 
-/*fileMd=[ '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.js',
-'/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.js',
-'/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.md',
-'/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.md' ]
-*/
+
 const filesMd = (fileArr)=>{
     let newArrayFileMd=[]
     fileArr.forEach(element => {
@@ -15,10 +12,11 @@ const filesMd = (fileArr)=>{
     });
     return newArrayFileMd
 }
-// extraer links
 
-const extracLinks =(ArrFileMd)=>{
+
+const extracLinks =(route)=>{
     let newArrayLinks=[];
+    let ArrFileMd=walkIntoDirectory(route);
     let ArrayMd= filesMd(ArrFileMd);
     const regExpresion = /(^|[^!])\[(.*)\]\((.*)\)/g;
     const regExpressionHref = /\((.*)\)/g;
@@ -41,8 +39,6 @@ const extracLinks =(ArrFileMd)=>{
     return newArrayLinks
 }
 
-
-//console.log(extracLinks(fileMd))
 
 module.exports={
     filesMd,
