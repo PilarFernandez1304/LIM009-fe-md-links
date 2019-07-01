@@ -17,11 +17,20 @@ const getLinksStats = (path) => {
 //getLinksStats(route).then(r=>console.log(r))
   
   // Función para ver los links rotos
-
+const getBrokenLinksStats = (path) => {
+    return new Promise((resolve, reject) => {
+      validateLinks(path)
+        .then((response) => {
+          const brokenLinks = response.filter(element => element.message === 'Fail').length;
+          resolve(`Broken: ${brokenLinks}`);
+        })
+        .catch(error => reject(error));
+    });
+  };
 //getBrokenLinksStats(route).then(r=>console.log(r))
 
 
 module.exports={
   getLinksStats,
-  
+  getBrokenLinksStats
 }
