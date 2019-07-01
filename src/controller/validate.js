@@ -15,12 +15,12 @@ let validateAbsolutePath = async (route) => {
 }
 
 let validatePathisDirectory = (route) => {
-  let dir = fs.statSync(route).isDirectory()
+  let dir = fs.lstatSync(route).isDirectory()
   return dir
 }
 
 let validatePathisFile =  (route) => {
-  let files = fs.statSync(route).isFile()
+  let files = fs.lstatSync(route).isFile()
   return files
 }
 

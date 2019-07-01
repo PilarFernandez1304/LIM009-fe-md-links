@@ -1,4 +1,4 @@
-import { validateLinks } from '../src/validateLinks.js'
+import { validateLinks } from '../src/controller/validateLinks.js'
 const fetchMock = require('../__mocks__/node-fetch');
 
 const fileMd = ['/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.js',

@@ -1,4 +1,5 @@
-import { filesMd, extracLinks } from "../src/md-links.js";
+import { filesMd, extracLinks } from "../src/controller/md-links.js";
+
 
 const input = ['/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/cli.js',
     '/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/validate.js',

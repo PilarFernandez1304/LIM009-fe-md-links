@@ -1,5 +1,5 @@
 const {mdLinks}= require('./index.js')
-const {getLinksStats, getBroken }=require ('./controller/stats.js')
+const {getLinksStats, getBrokenLinksStats }=require ('./controller/stats.js')
 
 
 const argv=process.argv.slice(2)

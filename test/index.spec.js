@@ -1,5 +1,5 @@
 // importamos la funcion que vamos a testear
-import { validateAbsolutePath, validatePathisDirectory,validatePathisFile,walkIntoDirectory} from "../src/validate.js";
+import { validateAbsolutePath, validatePathisDirectory,validatePathisFile,walkIntoDirectory} from "../src/controller/validate.js";
 
 let salida1 =[
               '/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js',

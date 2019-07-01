@@ -7,7 +7,7 @@ const mdLinks = (path, options) => {
   if (options.validate) {
     return validateLinks(path)
   } else {
-    return extractLinks(path);
+    return new Promise(resolve => resolve(extractLinks(path)));
   }
 };
 
