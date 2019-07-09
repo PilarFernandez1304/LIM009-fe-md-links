@@ -19,10 +19,6 @@ let validatePathisDirectory = (route) => {
   return dir
 }
 
-let validatePathisFile =  (route) => {
-  let files = fs.lstatSync(route).isFile()
-  return files
-}
 
 
 let walkIntoDirectory=(route)=> {
@@ -43,6 +39,5 @@ let walkIntoDirectory=(route)=> {
 module.exports = {
   validateAbsolutePath,
   validatePathisDirectory,
-  validatePathisFile,
   walkIntoDirectory
 }

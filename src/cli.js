@@ -5,6 +5,8 @@ const {getLinksStats, getBrokenLinksStats }=require ('./controller/stats.js')
 const argv=process.argv.slice(2)
 
 
+
+
 const option = {
     validate: false,
     stats: false

@@ -1,15 +1,14 @@
 // importamos la funcion que vamos a testear
-import { validateAbsolutePath, validatePathisDirectory,validatePathisFile,walkIntoDirectory} from "../src/controller/validate.js";
-
+import { validateAbsolutePath, validatePathisDirectory,walkIntoDirectory} from "../src/controller/validate.js";
+const path = require('path')
 let salida1 =[
-              '/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js',
-              '/home/pilar/Escritorio/LIM009-fe-md-links/src/md-links.js',
-              "/home/pilar/Escritorio/LIM009-fe-md-links/src/stats.js",              
-              '/home/pilar/Escritorio/LIM009-fe-md-links/src/validate.js',
-              "/home/pilar/Escritorio/LIM009-fe-md-links/src/validateLinks.js" ]
+              `${process.cwd()}/test/Prueba/Archivo1.js`,
+              `${process.cwd()}/test/Prueba/cli.md`,
+              `${process.cwd()}/test/Prueba/sdsd.js`,              
+              `${process.cwd()}/test/Prueba/validate.js`,
+              `${process.cwd()}/test/Prueba/validate.md` ]
 
-let salida2 = ['/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js' ]
-
+let salida2 = [`${process.cwd()}/test/Prueba/Archivo1.js` ]
 
 
 describe('validateAbsolutePath', () => {
@@ -18,10 +17,10 @@ describe('validateAbsolutePath', () => {
     });
 
     it('deberia retornar /home/pilar/Escritorio/LIM009-fe-md-links/src/LIM009-fe-md-links, si la ruta añadida no es Absoluta', async () => {
-      return expect(validateAbsolutePath('./src/cli.js')).resolves.toBe('/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js')
+      return expect(validateAbsolutePath('./test/Prueba/Archivo1.js')).resolves.toBe('/home/pilar/Escritorio/LIM009-fe-md-links/test/Prueba/Archivo1.js')
     });
     it('deberia retornar /home/pilar/Escritorio/LIM009-fe-md-links/src/LIM009-fe-md-links, si la ruta añadida no es Absoluta', async () => {
-      return expect(validateAbsolutePath('/home/pilar/Escritorio/LIM009-fe-md-links/src/')).resolves.toBe('/home/pilar/Escritorio/LIM009-fe-md-links/src/')
+      return expect(validateAbsolutePath(`${process.cwd()}/test/Prueba/`)).resolves.toBe('/home/pilar/Escritorio/LIM009-fe-md-links/test/Prueba/')
     });
 });
 
@@ -30,19 +29,10 @@ describe('validatePathisDirectory', () => {
       expect(typeof validatePathisDirectory).toBe('function');
     })
     it('deberia retornar true si /home/pilar/Escritorio/LIM009-fe-md-links/src/ es un directorio', () => {
-      expect(validatePathisDirectory('/home/pilar/Escritorio/LIM009-fe-md-links/src/')).toBe(true)
+      expect(validatePathisDirectory(`${process.cwd()}/test/Prueba/`)).toBe(true)
     })
 })
 
-
-describe('validatePathisFile',()=>{
-  it('validateIfisDirectory deberia ser una funcion',()=>{
-    expect(typeof validatePathisFile).toBe('function');
-  })
-  it('deberia retornar true si se ingresa /home/pilar/Escritorio/LIM009-fe-md-links/src/.cli.js ',()=>{
-   expect(validatePathisFile('/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js')).toBe(true)
-  })
-})
 
 
 describe('walkIntoDirectory',()=>{
@@ -50,10 +40,10 @@ describe('walkIntoDirectory',()=>{
     expect(typeof walkIntoDirectory).toBe('function');
   })
   it('si ingreso una ruta deberia devolver un array con los archivos',()=>{
-    expect(walkIntoDirectory('/home/pilar/Escritorio/LIM009-fe-md-links/src/')).toEqual(salida1)
+    expect(walkIntoDirectory(`${process.cwd()}/test/Prueba/`)).toEqual(salida1)
   })
   it('si ingreso una ruta deberia devolver un array con los archivos',()=>{
-    expect(walkIntoDirectory('/home/pilar/Escritorio/LIM009-fe-md-links/src/cli.js')).toEqual(salida2)
+    expect(walkIntoDirectory(`${process.cwd()}/test/Prueba/Archivo1.js`)).toEqual(salida2)
   })
 
 })
