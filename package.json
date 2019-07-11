@@ -1,8 +1,8 @@
 {
   "name": "lim009-fe-md-links",
   "version": "1.0.0",
-  "description": "md-links finder, frontend project @ Laboratoria",
-  "main": "src/index.js",
+  "description": "md-links, frontend project @ Laboratoria",
+  "main": "src/cli.js",
   "keywords": [
     "node",
     "filesystem",
@@ -12,7 +12,10 @@
   "author": "Pilar Fernandez Ccente",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PilarFernandez1304/LIM009-fe-md-links/issues"
+    "url": "https://github.com/PilarFernandez1304/LIM009-fe-md-links/issues",
+  "bin":{
+    "md-links": "./src/cli.js"
+      }
   },
   "repository": {
     "type": "git",

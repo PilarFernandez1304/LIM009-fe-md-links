@@ -1,7 +1,7 @@
 const {validateLinks}=require('./validateLinks.js')
  
 
-//route='/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/'
+
 
 const getLinksStats = (path) => {
     return new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ const getLinksStats = (path) => {
     });
   };
 
-//getLinksStats(route).then(r=>console.log(r))
+
   
   // Función para ver los links rotos
 const getBrokenLinksStats = (path) => {
@@ -24,11 +24,11 @@ const getBrokenLinksStats = (path) => {
           const brokenLinks = response.filter(element => element.message === 'Fail').length;
           resolve(`Broken: ${brokenLinks}`);
         })
-        .catch(error=>console.log(error))
+        
         
     });
 };
-//getBrokenLinksStats(route).then(r=>console.log(r))
+
 
 
 module.exports={

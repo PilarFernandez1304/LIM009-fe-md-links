@@ -1,6 +1,6 @@
 const {extracLinks} =require ('./controller/md-links.js');
 const {validateLinks}= require ('./controller/validateLinks.js');
-//route='/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/'
+
 
 
 const mdLinks = (path, options) => {

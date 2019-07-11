@@ -2,7 +2,7 @@
 const { extracLinks } = require('./md-links.js');
 const fetch = require('node-fetch');
 
-//route='/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/'
+
 
 const validateLinks = (routesMd) => {
     let objLinks = extracLinks(routesMd);
@@ -31,7 +31,7 @@ const validateLinks = (routesMd) => {
 }
 
 
-//validateLinks(route).then(res=>console.log(res));
+
 
 module.exports = {
     validateLinks
