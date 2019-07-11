@@ -35,9 +35,9 @@ const ouputLinks = [{
     text: 'NPM'
 },
 {
-         file: "/home/pilar/Escritorio/LIM009-fe-md-links/test/Prueba/cli.md",
-         href: "'https://github.com/Laboratoria/LIM008-fe-md-lin'",
-         text: "Laboratoria",
+    file: "/home/pilar/Escritorio/LIM009-fe-md-links/test/Prueba/cli.md",
+    href: "https://github.com/Laboratoria/LIM008-fe-md-lin",
+    text: "Laboratoria",
 }]
 
 

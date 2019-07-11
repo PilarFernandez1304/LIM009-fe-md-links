@@ -1,4 +1,5 @@
- const {validateLinks}=require('./validateLinks.js')
+const {validateLinks}=require('./validateLinks.js')
+ 
 
 //route='/home/pilar/Escritorio/LIM009-fe-md-links/Prueba/'
 

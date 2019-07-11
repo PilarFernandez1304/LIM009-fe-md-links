@@ -4,9 +4,6 @@ const {getLinksStats, getBrokenLinksStats }=require ('./controller/stats.js')
 
 const argv=process.argv.slice(2)
 
-
-
-
 const option = {
     validate: false,
     stats: false
@@ -16,14 +13,14 @@ switch(argv.length){
     case 0: 
         console.log('Ingrese una ruta');break;
     case 1:
-        console.log(argv[0])
+       
         mdLinks(argv[0], option)
         .then(response => response.forEach((links) => 
         console.log(`\n Path :${links.file} \n Link : ${links.href}  \n Texto : ${links.text}`)))
         ;break;
         
     case 2:
-        console.log(argv[1])
+       
         if (argv[1] === '--stats' || argv[1] === '--s') {
             option.stats = true;
             getLinksStats(argv[0])
@@ -38,7 +35,7 @@ switch(argv.length){
           };
         ;break;
     case 3:
-        console.log(argv[2])
+       
         if (argv[1] === '--validate' && argv[2] === '--stats' || argv[1] === '--stats' && argv[2] === '--validate') {
             option.validate = true;
             option.stats = true;

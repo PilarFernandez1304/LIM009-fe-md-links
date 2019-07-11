@@ -12,7 +12,6 @@ const mdLinks = (path, options) => {
   }
 };
 
-//console.log(mdLinks(route))
 
 module.exports={
     mdLinks

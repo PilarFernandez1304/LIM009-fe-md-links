@@ -1,5 +1,5 @@
 
-'use strict'
+
 const fs = require('fs');
 const path = require('path');
 
@@ -18,7 +18,6 @@ let validatePathisDirectory = (route) => {
   let dir = fs.lstatSync(route).isDirectory()
   return dir
 }
-
 
 
 let walkIntoDirectory=(route)=> {
