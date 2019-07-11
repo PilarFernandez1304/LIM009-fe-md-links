@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-let validateAbsolutePath = async (route) => {
+const validateAbsolutePath = async (route) => {
 
   if (!path.isAbsolute(route)) {
     let pathAbs = path.resolve(route);
@@ -14,13 +14,13 @@ let validateAbsolutePath = async (route) => {
   }
 }
 
-let validatePathisDirectory = (route) => {
+const validatePathisDirectory = (route) => {
   let dir = fs.lstatSync(route).isDirectory()
   return dir
 }
 
 
-let walkIntoDirectory=(route)=> {
+const walkIntoDirectory=(route)=> {
   let arrayOfFile = [];
   if (!validatePathisDirectory(route)){
     arrayOfFile.push(route)
@@ -28,7 +28,9 @@ let walkIntoDirectory=(route)=> {
   else {
     let readDirectory = fs.readdirSync(route)
     readDirectory.map((read) => { 
+      // recorrer array y normalizar las rutas del array
       let next =path.join(route,read)
+      // se produce la recursividad
        return (validatePathisDirectory(next)) ?  arrayOfFile=arrayOfFile.concat(walkIntoDirectory(next)) : arrayOfFile.push(next);
       })
   }

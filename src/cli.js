@@ -31,7 +31,7 @@ switch(argv.length){
             option.validate = true;
             mdLinks(argv[0], option)
               .then(response => response.map(links => 
-                console.log(`\n Path :${links.file} \n Link : ${links.href}${links.status}${links.message} \n texto : ${links.text} `)))
+                console.log(`\n Path :${links.file} \n Link : ${links.href}  ${links.status}  ${links.message} \n texto : ${links.text} `)))
           };
         ;break;
     case 3:

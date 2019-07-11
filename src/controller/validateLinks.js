@@ -20,7 +20,7 @@ const validateLinks = (routesMd) => {
                     resolve(linksVal);
                 }
             })
-            .catch(error=>{
+            .catch(()=>{
                 linksVal.status = 'No existe';
                 linksVal.message = 'Fail';
                 resolve(linksVal);

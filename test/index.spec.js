@@ -4,6 +4,7 @@ const path = require('path')
 let salida1 =[
               `${process.cwd()}/test/Prueba/Archivo1.js`,
               `${process.cwd()}/test/Prueba/cli.md`,
+              `${process.cwd()}/test/Prueba/directorio2/val.md`,
               `${process.cwd()}/test/Prueba/sdsd.js`,              
               `${process.cwd()}/test/Prueba/validate.js`,
               `${process.cwd()}/test/Prueba/validate.md` ]

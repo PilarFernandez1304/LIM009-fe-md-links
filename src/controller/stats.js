@@ -11,7 +11,6 @@ const getLinksStats = (path) => {
           const uniqueLinks = [...new Set(response.map(response => response.href))].length;
           resolve(`Total : ${totalLinks} Unique: ${uniqueLinks}`);
         })
-        .catch(error => reject(error));
     });
   };
 
@@ -25,9 +24,10 @@ const getBrokenLinksStats = (path) => {
           const brokenLinks = response.filter(element => element.message === 'Fail').length;
           resolve(`Broken: ${brokenLinks}`);
         })
-        .catch(error => reject(error));
+        .catch(error=>console.log(error))
+        
     });
-  };
+};
 //getBrokenLinksStats(route).then(r=>console.log(r))
 
 

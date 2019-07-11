@@ -1,4 +1,6 @@
 import { validateLinks } from '../src/controller/validateLinks.js'
+import { getLinksStats, getBrokenLinksStats} from '../src/controller/stats.js'
+
 const fetchMock = require('../__mocks__/node-fetch.js');
 
 
@@ -57,7 +59,7 @@ describe('validateLinks', () => {
         return new Promise((resolve) => {
           validateLinks(`${process.cwd()}/test/Prueba/`)
             .then((response) => {
-              expect(response).toEqual(results);
+              expect(response).toEqual(ouputValidate);
               resolve(response);
               done();
             })
@@ -66,3 +68,41 @@ describe('validateLinks', () => {
     });
    
 })
+
+describe('getLinksStats', () => {
+    it('Debería de ser una función', () => {
+      expect(typeof getLinksStats).toBe('function');
+    });
+    it('Debería retornar un Objeto con dos propiedades, el total de links encontrados y la cantidad de links únicos', (done) => {
+      return new Promise((resolve) => {
+        getLinksStats(`${process.cwd()}/test/Prueba/`)
+          .then((response) => {
+            expect(response).toEqual('Total: 5 Unique: 5');
+            resolve(response);
+            done();
+          })
+          .catch(error => done());
+      });
+    });
+  });
+
+  describe('getBrokenLinksStats', () => {
+    it('Debería ser una función', () => {
+      expect(typeof getBrokenLinksStats).toBe('function');
+    });
+    it('Debería retornar el total de links rotos', (done) => {
+      return new Promise((resolve) => {
+        getBrokenLinksStats(`${process.cwd()}/test/Prueba/`)
+          .then((response) => {
+            expect(response).toEqual('Broken: 3');
+            resolve(response);
+            done();
+          })
+          .catch(error =>{ 
+           
+            
+            done()});
+        
+      });
+    });
+  });
