@@ -5,15 +5,15 @@ const fetch = require('node-fetch');
 
 
 const validateLinks = (routesMd) => {
-    let objLinks = extracLinks(routesMd);
-    let runObjLinks = objLinks.map((linksVal) => new Promise((resolve) => {
-        let linksHref = fetch(linksVal.href);
-        return linksHref
+    let ArrobjLinks = extracLinks(routesMd);
+    let runArrObjLinks = ArrobjLinks.map((linksVal) => new Promise((resolve) => {
+        // valida la propiedad href que esta dentro de mi array de objeto
+        return fetch(linksVal.href) // objeto con propiedades de respuesta de la peticion       
             .then((res) => {
                 if (res.status >= 200 && res.status < 400) {
                     linksVal.status = res.status;
                     linksVal.message = res.statusText;
-                    resolve(linksVal);
+                    resolve(linksVal); // retorno mi objeto
                 } else {
                     linksVal.status = res.status;
                     linksVal.message = 'Fail';
@@ -27,7 +27,8 @@ const validateLinks = (routesMd) => {
             })
         })
     )
-    return Promise.all(runObjLinks)
+    
+    return Promise.all(runArrObjLinks)
 }
 
 

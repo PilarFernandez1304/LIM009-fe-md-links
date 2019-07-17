@@ -1,11 +1,9 @@
-
-
 const fs = require('fs');
 const path = require('path');
 
+// validar si ruta es absoluta
 const validateAbsolutePath = async (route) => {
-
-  if (!path.isAbsolute(route)) {
+  if (!path.isAbsolute(route)) {  
     let pathAbs = path.resolve(route);
     return pathAbs
   }
@@ -14,12 +12,13 @@ const validateAbsolutePath = async (route) => {
   }
 }
 
+// validar si la ruta ingresada es un directorio
 const validatePathisDirectory = (route) => {
   let dir = fs.lstatSync(route).isDirectory()
   return dir
 }
 
-
+// recorrer el directorio
 const walkIntoDirectory=(route)=> {
   let arrayOfFile = [];
   if (!validatePathisDirectory(route)){

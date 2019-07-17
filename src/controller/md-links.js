@@ -23,7 +23,7 @@ const extracLinks =(route)=>{
     const regExpressionNameLink = /\[((.*))\]/g;
     ArrayMd.forEach(elempathMd=>{
         let readFileMd=fs.readFileSync(elempathMd,'utf-8');
-        let listafLinksMd=readFileMd.match(regExpresion)
+        let listafLinksMd=readFileMd.match(regExpresion) // retorna un array
         if(listafLinksMd!==null){
          listafLinksMd.forEach(InfoLinks=>{
              let href=InfoLinks.match(regExpressionHref).toString();
@@ -32,6 +32,7 @@ const extracLinks =(route)=>{
             file: path.resolve(elempathMd),
             href: href.split((/[\(\)]/))[1],
             text: name.split(/[\[\]]/)[1].slice(0, 60),
+            
          })
         })
       }

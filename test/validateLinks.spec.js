@@ -55,17 +55,8 @@ describe('validateLinks', () => {
         })
             .catch(error => done());
     })
-    it('Debería retornar un objeto con las propiedades file, href, text, status, message', (done) => {
-        return new Promise((resolve) => {
-          validateLinks(`${process.cwd()}/test/Prueba/`)
-            .then((response) => {
-              expect(response).toEqual(ouputValidate);
-              resolve(response);
-              done();
-            })
-            .catch(error => done());
-        });
-    });
+
+    
    
 })
 

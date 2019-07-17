@@ -2,8 +2,7 @@ const {extracLinks} =require ('./controller/md-links.js');
 const {validateLinks}= require ('./controller/validateLinks.js');
 
 const option={
-  validate:false,
-  stats:false
+  validate:false
 }
 
 
